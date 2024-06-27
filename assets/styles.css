@@ -14,6 +14,7 @@
 
 body {
     width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,6 +53,7 @@ h1, h2, h3 {
     width: 40px;
     height: 40px;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .mobile-nav {
@@ -79,6 +81,11 @@ h1, h2, h3 {
     letter-spacing: 2px;
     width: 90%;
     margin: 0 auto;
+}
+
+.mobile-nav a:hover {
+    background-color: var(--very-light-gray);
+    color: var(--very-dark-violet);
 }
 
 .hide {
@@ -150,6 +157,7 @@ h1, h2, h3 {
     position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1;
 }
 
 .hero .content-container h1 {
@@ -164,6 +172,8 @@ h1, h2, h3 {
     line-height: 1.7;
     text-align: center;
     font-size: 1.3rem;
+    position: relative;
+    z-index: 10;
 }
 
 .hero .content-container a {
@@ -172,6 +182,13 @@ h1, h2, h3 {
     text-transform: uppercase;
     border: 1px solid var(--very-light-gray);
     padding: 12px 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero .content-container a:hover {
+    background-color: var(--very-light-gray);
+    color: var(--very-dark-violet);
 }
 
 .separator {
@@ -182,6 +199,11 @@ h1, h2, h3 {
     width: 40%;
     margin: auto;
     color: var(--very-dark-violet);
+}
+
+hr {
+    background-color: rgb(204, 204, 204) !important;
+    border: 1px solid rgb(204, 204, 204);
 }
 
 .info-section h2 {
@@ -258,6 +280,14 @@ h1, h2, h3 {
     border: 1px solid var(--very-light-gray);
     padding: 15px 40px;
     letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+ }
+
+ .call-to-action a:hover {
+    background-color: var(--very-light-gray);
+    color: var(--very-dark-violet);
  }
  
  footer {
@@ -321,6 +351,10 @@ h1, h2, h3 {
     color: var(--dark-grayish-violet);
  }
 
+ .fa-brands:hover {
+    color: var(--very-dark-violet);
+ }
+
  .menu-container {
     margin-bottom: 40px;
  }
@@ -351,6 +385,241 @@ h1, h2, h3 {
     font-weight: 700;
  }
 
+ .menu-container ul li a:hover {
+    text-decoration: underline;
+ }
+
  .attribution {
     margin-bottom: 40px;
  }
+
+ @media screen and (min-width:1024px) {
+    .mobile-nav_container {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .desktop-nav a {
+        text-decoration: none;
+        color: var(--dark-grayish-violet);
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .desktop-nav a:hover {
+        color: var(--very-dark-violet);
+    }
+
+    .desktop-nav a:last-of-type {
+        color: var(--very-dark-violet);
+        border: 1px solid var(--very-dark-violet);
+        padding: 12px 40px;
+    }
+
+    .desktop-nav a:last-of-type:hover {
+        background: var(--very-dark-violet);
+        color: var(--very-light-gray);
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: row-reverse;
+        position: relative;
+        background-color: var(--dark-violet);
+        padding: 40px 60px;
+    }
+
+    .hero picture {
+        position: absolute;
+        width: 40%;
+        z-index: 10;
+        right: 100px;
+        bottom: -120px;
+    }
+
+    .hero .content-container {
+        align-items: flex-start;
+    }
+
+    .hero .content-container h1, .hero .content-container p {
+        width: 50%;
+        text-align: start;
+    }
+
+    .hero .content-container::before, .hero .content-container::after {
+        background: none;
+    }
+
+    .hero::before {
+        content: "";
+        background: url(../images/bg-pattern-intro-left-desktop.svg);
+        height: 600px;
+        width: 500px;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 380px;
+        left: 0;
+        z-index: 1;
+    }
+
+    .hero::after {
+        content: "";
+        background: url(../images/bg-pattern-intro-right-desktop.svg);
+        position: absolute;
+        height: 600px;
+        width: 500px;
+        background-repeat: no-repeat;
+        right: -70px;
+        z-index: 20;
+        top: 0;
+    }
+
+    .hero .content-container h1 {
+        font-size: 4rem;
+        font-weight: 400;
+    }
+
+    .hero .content-container p {
+         z-index: 100;
+    }
+
+    .hero .content-container a {
+        z-index: 100;
+    }
+
+    .separator {
+        display: inline-block;
+        margin: 250px 50px 60px;
+    }
+
+    .separator hr {
+        width: 200px;
+    }
+
+    .info-section h2 {
+        text-align: start;
+        margin: 40px;
+        font-size: 3.5rem;
+        font-weight: 300;
+    }
+
+    .cards-container {
+        flex-direction: row;
+        gap: 20px;
+        align-items: baseline;
+        margin: 40px;
+    }
+
+    .card {
+        align-items: flex-start;
+        width: 30%;
+    }
+
+    .card p {
+        text-align: start;
+    }
+
+    .call-to-action {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        height: 290px;
+        margin: auto;
+        padding: 40px;
+        position: relative;
+    }
+
+    .call-to-action::before {
+        background: url(../images/bg-pattern-how-we-work-desktop.svg);
+        background-repeat: no-repeat;
+        height: 450px;
+        width: 500px;
+        top: 0;
+        right: 0;
+        background-size: contain;
+    }
+
+    .call-to-action h2 {
+        width: 60%;
+        font-size: 3.5rem;
+        font-weight: 300;
+        text-align: start;
+        margin-bottom: 0;
+    }
+
+    .newline {
+        display: block;
+    }
+
+    .call-to-action a {
+        position: relative;
+    }
+
+    .social-icons_container {
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
+        height: 90px;
+    }
+
+    .footer-container::before {
+        background: url(../images/bg-pattern-footer-desktop.svg);
+        background-repeat: no-repeat;
+        height: 300px;
+        width: 600px;
+        left: 0;
+    }
+
+    .footer-container .logo {
+        margin: 0;
+    }
+
+    .footer-container .separator {
+        margin: 20px 40px;
+        width: 90%;
+        position: relative;
+    }
+
+    .menus-container {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin-top: 50px;
+    }
+
+    .menu-container h4 {
+        text-align: start;
+    }
+
+    .menu-container ul li {
+        text-align: start;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    header {
+        max-width: 1450px;
+    }
+
+    .main-container {
+        max-width: 1500px;
+    }
+
+    .hero {
+        max-width: 1500px;
+        margin: auto;
+    }
+
+    .hero img {
+        width: 600px;
+    }
+
+    
+}
