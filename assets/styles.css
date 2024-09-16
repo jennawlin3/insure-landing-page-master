@@ -28,14 +28,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
     width: 100%;
     margin: auto;
     height: 90px;
     padding: 50px 40px;
-}
-
-.header-container {
-    position: relative;
+    z-index: 999;
+    background-color: #fff;
 }
 
 h1, h2, h3 {
@@ -62,12 +62,12 @@ h1, h2, h3 {
 .mobile-nav {
     background-color: var(--very-dark-violet);
     width: 100%;
-    height: 600px;
     display: flex;
     flex-direction: column;
-    position: absolute;
     left: 0;
-    min-height: 100vh;
+    height: 100vh;
+    position: fixed;
+    z-index: 500;
     top: 90px;
 }
 
@@ -141,7 +141,7 @@ h1, h2, h3 {
 .hero .content-container::before {
     content: "";
     width: 230px;
-    height: 30vh;
+    height: 230px;
     background: url(../images/bg-pattern-intro-left-mobile.svg);
     top: 0;
     left: 0;
@@ -152,7 +152,7 @@ h1, h2, h3 {
 
 .hero .content-container::after {
     content: "";
-    width: 230px;
+    width: 180px;
     height: 600px;
     background: url(../images/bg-pattern-intro-right-mobile.svg);
     bottom: -380px;
@@ -167,6 +167,7 @@ h1, h2, h3 {
     font-size: 3.5rem;
     color: var(--very-light-gray);
     text-align: center;
+    position: relative;
 }
 
 .hero .content-container p {
@@ -186,7 +187,7 @@ h1, h2, h3 {
     border: 1px solid var(--very-light-gray);
     padding: 12px 40px;
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 .hero .content-container a:hover {
@@ -401,6 +402,10 @@ hr {
         display: none;
     }
 
+    header {
+        padding: 0 150px;
+    }
+
     .desktop-nav {
         display: flex;
         gap: 30px;
@@ -435,7 +440,7 @@ hr {
         flex-direction: row-reverse;
         position: relative;
         background-color: var(--dark-violet);
-        padding: 40px 60px;
+        padding: 40px 120px;
     }
 
     .hero picture {
@@ -463,12 +468,13 @@ hr {
         content: "";
         background: url(../images/bg-pattern-intro-left-desktop.svg);
         height: 600px;
-        width: 500px;
+        width: 200px;
         background-repeat: no-repeat;
         position: absolute;
-        top: 380px;
+        top: 540px;
         left: 0;
         z-index: 1;
+        transform: translateX(-50px);
     }
 
     .hero::after {
@@ -481,6 +487,10 @@ hr {
         right: -70px;
         z-index: 20;
         top: 0;
+    }
+
+    .hero-container {
+        margin-top: 100px;
     }
 
     .hero .content-container h1 {
@@ -505,11 +515,24 @@ hr {
         width: 200px;
     }
 
+    .info-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .separator {
+        align-self: flex-start;
+        padding-left: 50px;
+    }
+
     .info-section h2 {
         text-align: start;
-        margin: 40px;
+        margin: 0px 40px 20px;
         font-size: 3.5rem;
         font-weight: 300;
+        align-self: start;
+        padding-left: 50px;
     }
 
     .cards-container {
@@ -534,7 +557,7 @@ hr {
         width: 90%;
         height: 290px;
         margin: auto;
-        padding: 40px;
+        padding: 40px 100px;
         position: relative;
     }
 
@@ -608,15 +631,15 @@ hr {
 
 @media screen and (min-width: 1440px) {
     header {
-        max-width: 1450px;
+        max-width: 1800px;
     }
 
     .main-container {
-        max-width: 1500px;
+        max-width: 1800px;
     }
 
     .hero {
-        max-width: 1500px;
+        max-width: 1800px;
         margin: auto;
     }
 
